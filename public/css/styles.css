@@ -17,15 +17,6 @@ header {
     cursor: pointer;
 }
 
-.nav__links li {
-    display: inline-block;
-    padding: 0px 20px;
-}
-
-.nav__links li:hover {
-    color: red;
-}
-
 #add_button {
     margin: 20px;
     border-radius: 50px;
