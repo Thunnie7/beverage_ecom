@@ -7,8 +7,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
-const { addbeverage } = require('./utils/beverageUtil')
-app.post('/add-beverage', addbeverage);
+const { addbeverage } = require("./utils/beverageUtil");
+const { editbeverage } = require("./utils/updateUtil");
+app.post("/add-beverage", addbeverage);
+app.put("/edit-beverage/:id", editbeverage);
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);

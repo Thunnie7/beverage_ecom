@@ -28,22 +28,22 @@ async function addbeverage(req, res) {
         const category = req.body.category;
         const description = req.body.description;
         const rating = req.body.rating;
-        const quatity = req.body.quatity;
-        //check for price rating and quatity to be number
+        const quantity = req.body.quantity;
+        //check for price rating and quantity to be number
         if (isNaN(price)) {
             return res.status(400).json({ message: "Price must be a number." });
         } else if (isNaN(rating)) {
             return res
                 .status(400)
                 .json({ message: "Rating must be a number." });
-        } else if (rating < 1 || rating > 10) {
+        } else if (rating < 1 || rating > 5) {
             return res
                 .status(400)
-                .json({ message: "Rating must be between 1 and 10." }); //check for values of rating from 1-10
-        } else if (isNaN(quatity)) {
+                .json({ message: "Rating must be between 1 and 5." }); //check for values of rating from 1-5
+        } else if (isNaN(quantity)) {
             return res
                 .status(400)
-                .json({ message: "Quatity must be a number." });
+                .json({ message: "quantity must be a number." });
         } else {
             const newbeverage = new beverage(
                 name,
@@ -52,7 +52,7 @@ async function addbeverage(req, res) {
                 category,
                 description,
                 rating,
-                quatity
+                quantity
             );
             const updatedbeverages = await writeJSON(
                 newbeverage,
