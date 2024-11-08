@@ -6,6 +6,10 @@ var startPage = "index.html";
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
+
+const { addbeverage } = require('./utils/beverageUtil')
+app.post('/add-beverage', addbeverage);
+
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
 });
