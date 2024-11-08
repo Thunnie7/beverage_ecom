@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+}
+
+header {
+    padding: 20px;
+    text-align: left;
+    background-color: #bde0fe;
+    color: #000000;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li:hover {
+    color: red;
+}
+
+#add_button {
+    margin: 20px;
+    border-radius: 50px;
+    padding: 10px;
+}
