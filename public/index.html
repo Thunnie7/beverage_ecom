@@ -1,92 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/styles.css" />
+        <title>Beverage</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/styles.css" />
-    
-    <title>Beverage</title>
-</head>
+    <body>
+        <header>
+            <h1 class="logo">Fizzies</h1>
+        </header>
 
-<body>
-    <header>
-        <h1 class="logo">Fizzies</h1>
-        <!-- Horizontal Category Menu -->
-        <nav class="category-menu">
-            <ul>
-                <li>All</li>
-                <li>Juices</li>
-                <li>Soft Drinks</li>
-                <li>Tea</li>
-                <li>Coffee</li>
-                <li>Mocktails</li>
-                <li>Energy Drinks</li>
-            </ul>
-        </nav>
-    </header>
+        <!-- Button to open modal -->
+        <a href="add-beverage.html" class="open-modal-btn">Add Beverage</a>
 
-    <!-- Button to open modal -->
-    <a href="add-beverage.html" class="open-modal-btn">Add Beverage</a>
+        <!-- Container for Beverage Cards -->
+        <div class="card-container"></div>
 
+        <script src="./js/addbeverage.js"></script>
 
-<div class="modal" id="beverageModal">
-    <div class="modal-content">
-        <h2>Add New Beverage</h2>
-        <form>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Enter beverage name" required>
-            </div>
-            <div class="form-group">
-                <label for="image">Image URL</label>
-                <input type="url" id="image" placeholder="Enter image URL" onchange="previewImage()">
-                <div id="imagePreviewContainer">
-                    <img id="imagePreview" src="" alt="Image preview" style="display:none; width: 100%; max-height: 200px; object-fit: cover;">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="price">Price ($)</label>
-                <input type="number" id="price" placeholder="Enter price" min="0" step="0.01" required>
-            </div>
-            <div class="form-group">
-                <label for="category">Category</label>
-                <select id="category" required>
-                    <option value="" disabled selected>Select category</option>
-                    <option value="Juices">Juices</option>
-                    <option value="Soft Drinks">Soft Drinks</option>
-                    <option value="Tea">Tea</option>
-                    <option value="Coffee">Coffee</option>
-                    <option value="Mocktails">Mocktails</option>
-                    <option value="Energy Drink">Energy Drink</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" id="description" placeholder="Enter description">
-            </div>
-            <div class="form-group">
-                <label for="rating">Rating</label>
-                <input type="number" id="rating" placeholder="Enter rating (1-5)" min="1" max="5" step="0.1">
-            </div>
-            <div class="form-group">
-                <label for="quantity">Quantity</label>
-                <input type="number" id="quantity" placeholder="Enter quantity" min="0" required>
-            </div>
-            <div class="button-container">
-                <button type="button" class="close-btn" onclick="closeModal()">Close</button>
-                <button type="button" class="add-btn" id="addBeverageButton" onclick="addbeverage()">Add Beverage</button>
-            </div>
-        </form>
-        <p id="message"></p> 
-    </div>
-</div>
+        <script>
+            function viewBeverage() {
+                let response = "";
+                const request = new XMLHttpRequest();
+                request.open("GET", "/view-beverage", true);
+                request.setRequestHeader("Content-Type", "application/json");
 
+                request.onload = function () {
+                    response = JSON.parse(request.responseText);
+                    let html = "";
 
+                    response.forEach((beverage) => {
+                        html += `
+                        <div class="card-container">
+                        <div class="card">
+                            <h2 class="card-title">${beverage.name}</h2>
+                            <img src="${
+                                beverage.image ||
+                                "public / images / noimage.png"
+                            }" alt="Beverage Image" class="card-image">
+                            
+                            <p class="card-description">${
+                                beverage.description
+                            }</p>
+                            
+                            <p class="card-price">Price: $${beverage.price}</p>
+                            <p class="card-category">Category: ${
+                                beverage.category
+                            }</p>
+                            <p class="card-quantity">Quantity: ${
+                                beverage.quantity
+                            }</p>
+                            <div class="card-rating">Rating: ${
+                                beverage.rating
+                            }</div>
+                            <button type="button" onclick="">Edit</button>
+                        </div>
+                    `;
+                    });
 
+                    document.querySelector(".card-container").innerHTML = html;
+                };
 
-  
-<script src="./js/addbeverage.js"></script>
-</body>
+                request.onerror = function () {
+                    console.error("Error loading beverages");
+                };
 
+                request.send();
+            }
+
+            // Call viewBeverage on page load
+            document.addEventListener("DOMContentLoaded", viewBeverage);
+        </script>
+    </body>
 </html>

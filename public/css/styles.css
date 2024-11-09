@@ -24,12 +24,12 @@ header {
 }
 
 body {
-    background-image: url('../images/pexels-george-desipris-1028637.jpg'); 
-    background-size: cover;          
-    background-position: center;     
-    background-repeat: no-repeat;    
-    background-attachment: fixed;    
-    color: #fff;                     
+    background-image: url("../images/pexels-george-desipris-1028637.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
 }
 
 /* Logo */
@@ -47,23 +47,23 @@ body {
 }
 
 .category-menu ul {
-    display: flex;/* Aligns in a row */
-    list-style-type: none;           
+    display: flex; /* Aligns in a row */
+    list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
 .category-menu li {
-    margin: 0 15px;/* Spacing */
-    font-weight: bold;              
+    margin: 0 15px; /* Spacing */
+    font-weight: bold;
     color: #000; /*color for text */
     font-size: 1rem;
     cursor: pointer;
-    text-transform: uppercase;  
+    text-transform: uppercase;
 }
 
 .category-menu li:hover {
-    color: #007bff;                 
+    color: #007bff;
 }
 
 .open-modal-btn {
@@ -98,14 +98,13 @@ body {
     border: 2px solid #ff6f61;
 }
 
-
 /* Additional styling for layout */
 header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding: 20px;
-    background-color: #e0f7fa;/* Light blue background */
+    background-color: #e0f7fa; /* Light blue background */
 }
 
 /* Modal Background */
@@ -197,7 +196,7 @@ header {
 /* Change label text color to white and increase font size */
 .form-group label {
     color: #fff;
-    font-size:2rem; /* Adjust the size as needed */
+    font-size: 2rem; /* Adjust the size as needed */
 }
 
 .back-btn {
