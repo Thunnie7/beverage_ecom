@@ -9,8 +9,12 @@ app.use(express.static("./public"));
 
 const { addbeverage } = require("./utils/beverageUtil");
 const { editbeverage } = require("./utils/updateUtil");
+const { searchbevarage } = require("./utils/searchUtil");
+
 app.post("/add-beverage", addbeverage);
 app.put("/edit-beverage/:id", editbeverage);
+app.get('/search-bevarage', searchbevarage);
+
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);

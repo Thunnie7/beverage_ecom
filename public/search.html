@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Shops & Restaurants</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        /* Header Styles */
+        .header {
+            padding: 15px;
+            background-color: #446990;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header input[type="text"] {
+            margin-left: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 25px;
+            width: 80%;
+        }
+
+        /* Popular Searches Section */
+        .popular-section {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .keyword-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .keyword {
+            padding: 10px 15px;
+            border-radius: 20px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        /* Back Button */
+        .back-button {
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Search Bar -->
+    <div class="header">
+        <a href="index.html" class="back-button">&#8592;</a> <!-- Back arrow symbol -->
+        <input type="text" placeholder="Search for Bevarages">
+    </div>
+
+    <!-- Popular Searches Section -->
+    <div class="popular-section">
+        <div class="section-title">Popular searches </div>
+        <div class="keyword-container">
+            <span class="keyword">coke</span>
+            <span class="keyword">ice tea</span>
+            <span class="keyword">Bombay Sapphire</span>
+            <span class="keyword">Dasani water bottle</span>
+            <span class="keyword">Mojjito</span>
+            
+        </div>
+
+        
+    </div>
+    
+</body>
+</html>
