@@ -12,9 +12,8 @@ const { editbeverage } = require("./utils/updateUtil");
 app.post("/add-beverage", addbeverage);
 app.put("/edit-beverage/:id", editbeverage);
 
-app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/" + startPage);
-});
+
+
 server = app.listen(PORT, function () {
     const address = server.address();
     const baseUrl = `http://${
