@@ -65,8 +65,19 @@ async function addbeverage(req, res) {
     }
 }
 
+async function viewBeverage(req, res) {
+    try {
+        const allResources = await readJSON('utils/beverages.json');
+        return res.status(201).json(allResources);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
+
 module.exports = {
     readJSON,
     writeJSON,
     addbeverage,
+    viewBeverage
 };
