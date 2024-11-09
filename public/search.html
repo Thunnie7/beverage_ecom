@@ -66,6 +66,35 @@
             cursor: pointer;
             text-decoration: none;
         }
+
+        /* Results Section */
+        #resultsContainer {
+            padding: 20px;
+        }
+
+        .beverage-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .beverage-item img {
+            max-width: 100px;
+            max-height: 100px;
+            object-fit: cover;
+        }
+
+        .beverage-item h3 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .beverage-item p {
+            font-size: 1em;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -73,23 +102,24 @@
     <!-- Header with Search Bar -->
     <div class="header">
         <a href="index.html" class="back-button">&#8592;</a> <!-- Back arrow symbol -->
-        <input type="text" placeholder="Search for Bevarages">
+        <input type="text" id="searchInput" placeholder="Search for Beverages" oninput="searchbeverage()">
     </div>
 
     <!-- Popular Searches Section -->
     <div class="popular-section">
         <div class="section-title">Popular searches </div>
         <div class="keyword-container">
-            <span class="keyword">coke</span>
-            <span class="keyword">ice tea</span>
-            <span class="keyword">Bombay Sapphire</span>
-            <span class="keyword">Dasani water bottle</span>
-            <span class="keyword">Mojjito</span>
-            
+            <span class="keyword" onclick="setSearchQuery('coke')">coke</span>
+            <span class="keyword" onclick="setSearchQuery('ice tea')">ice tea</span>
+            <span class="keyword" onclick="setSearchQuery('Bombay Sapphire')">Bombay Sapphire</span>
+            <span class="keyword" onclick="setSearchQuery('Dasani water bottle')">Dasani water bottle</span>
+            <span class="keyword" onclick="setSearchQuery('Mojito')">Mojito</span>
         </div>
-
-        
     </div>
-    
+
+    <!-- Search Results Section -->
+    <div id="resultsContainer"></div>
+
+    <script src="js/searchbeverage.js"></script>
 </body>
 </html>

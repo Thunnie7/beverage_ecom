@@ -21,7 +21,7 @@ async function writeJSON(object, filename) {
     }
 }
 
-async function searchbevarage(req, res) {
+async function searchbeverage(req, res) {
     try {
         // Fetch all resources
         const allResources = await readJSON("utils/beverages.json");
@@ -44,5 +44,5 @@ async function searchbevarage(req, res) {
 module.exports = {
     readJSON,
     writeJSON,
-    searchbevarage,
+    searchbeverage,
 };
