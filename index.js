@@ -1,16 +1,19 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
+
+
 const PORT = process.env.PORT || 5051;
 var startPage = "index.html";
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
-const { addbeverage } = require("./utils/beverageUtil");
+const { addbeverage, viewBeverage } = require("./utils/beverageUtil");
 const { editbeverage } = require("./utils/updateUtil");
 app.post("/add-beverage", addbeverage);
 app.put("/edit-beverage/:id", editbeverage);
+app.get('/view-beverage', viewBeverage);
 
 
 
