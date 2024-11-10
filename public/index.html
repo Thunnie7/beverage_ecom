@@ -21,12 +21,8 @@
 
         <!-- Scripts for adding and editing beverages -->
         <script src="./js/addbeverage.js"></script>
-
-        <script src="./js/update_beverage.js"></script>
-
         <script src="./js/updatebeverage.js"></script>
         <script src="./js/search_beverage.js"></script>
-
 
         <script>
             function viewBeverage() {
@@ -43,7 +39,7 @@
                     <div class="card">
                         <h2 class="card-title">${beverage.name}</h2>
                         <img src="${
-                            beverage.image
+                            beverage.image || "public/images/noimage.png"
                         }" alt="Beverage Image" class="card-image">
                         <p class="card-description">${beverage.description}</p>
                         <p class="card-price">Price: $${beverage.price}</p>
@@ -74,6 +70,7 @@
             }
 
             function gotoUpdate(beverageData) {
+                
                 sessionStorage.setItem(
                     "selectedBeverage",
                     JSON.stringify(beverageData)

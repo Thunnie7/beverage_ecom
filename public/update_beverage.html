@@ -9,7 +9,6 @@
     <body>
         <header>
             <h1 class="logo">Fizzies - Update Beverage</h1>
-            <button class="back-btn" onclick="goBack()">Back</button>
         </header>
 
         <div class="container">
@@ -22,39 +21,14 @@
                         placeholder="Enter beverage name"
                         required
                     />
-                    <span
-                        id="nameError"
-                        class="text-danger"
-                        aria-live="polite"
-                    ></span>
                 </div>
-
                 <div class="form-group">
                     <label for="editImage">Image URL</label>
                     <input
                         type="url"
                         id="editImage"
                         placeholder="Enter image URL"
-                        required
                     />
-                    <span
-                        id="imageError"
-                        class="text-danger"
-                        aria-live="polite"
-                    ></span>
-                    <div id="imagePreviewContainer">
-                        <img
-                            id="imagePreview"
-                            src=""
-                            alt="Image preview"
-                            style="
-                                display: none;
-                                width: 100%;
-                                max-height: 200px;
-                                object-fit: cover;
-                            "
-                        />
-                    </div>
                 </div>
                 <div class="form-group">
                     <label for="editPrice">Price ($)</label>
@@ -62,16 +36,10 @@
                         type="number"
                         id="editPrice"
                         placeholder="Enter price"
-                        min="1"
-                        max="999999999.99"
+                        min="0"
                         step="0.01"
                         required
                     />
-                    <span
-                        id="priceError"
-                        class="text-danger"
-                        aria-live="polite"
-                    ></span>
                 </div>
                 <div class="form-group">
                     <label for="editCategory">Category</label>
@@ -93,15 +61,8 @@
                         type="text"
                         id="editDescription"
                         placeholder="Enter description"
-                        required
                     />
-                    <span
-                        id="descriptionError"
-                        class="text-danger"
-                        aria-live="polite"
-                    ></span>
                 </div>
-
                 <div class="form-group">
                     <label for="editRating">Rating</label>
                     <input
@@ -110,14 +71,8 @@
                         placeholder="Enter rating (1-5)"
                         min="1"
                         max="5"
-                        step="1"
-                        required
+                        step="0.1"
                     />
-                    <span
-                        id="ratingError"
-                        class="text-danger"
-                        aria-live="polite"
-                    ></span>
                 </div>
                 <div class="form-group">
                     <label for="editQuantity">Quantity</label>
@@ -127,11 +82,7 @@
                         placeholder="Enter quantity"
                         min="0"
                         required
-                    /><span
-                        id="quantityError"
-                        class="text-danger"
-                        aria-live="polite"
-                    ></span>
+                    />
                 </div>
 
                 <div class="button-container">
@@ -140,10 +91,10 @@
                     </button>
                 </div>
             </form>
-            <p id="editMessage" aria-live="polite"></p>
+            <p id="editMessage"></p>
         </div>
 
         <!-- Link to the separated JavaScript file -->
-        <script src="./js/update_beverage.js"></script>
+        <script src="./js/updatebeverage.js"></script>
     </body>
 </html>
