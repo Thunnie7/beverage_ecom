@@ -11,11 +11,9 @@ app.use(express.static("./public"));
 
 const { addbeverage, viewBeverage } = require("./utils/beverageUtil");
 const { editbeverage } = require("./utils/updateUtil");
-const { searchbeverage } = require("./utils/searchUtil");
 app.post("/add-beverage", addbeverage);
 app.put("/edit-beverage/:id", editbeverage);
 app.get('/view-beverage', viewBeverage);
-app.get('/search-beverage', searchbeverage);
 
 
 
