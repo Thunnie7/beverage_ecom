@@ -73,4 +73,7 @@ document.getElementById("searchInput").addEventListener("keydown", function(even
  
     displaySearchResults(currentResults);
  }
- 
+ function setSearchQuery(keyword) {
+    document.getElementById("searchInput").value = keyword; // Set the keyword in the search input
+    searchbeverage(); // Call the search function to display results
+}
