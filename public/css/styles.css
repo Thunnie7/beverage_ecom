@@ -102,7 +102,7 @@ body {
 .search-btn {
     position: absolute;
     top: 20px;
-    left: 450px; /* Positions the button on the left side of the header */
+    left: 1300px; /* Positions the button on the left side of the header */
     background-color: #ff6f61; /* Soft coral color, same as Add Beverage button */
     color: white;
     padding: 12px 24px;
