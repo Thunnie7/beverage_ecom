@@ -67,7 +67,11 @@ header {
 
     position: absolute;
     top: 20px;
+
+    left: 1200px; /* Positions the button on the left side of the header */
+
     left: 1300px; /* Positions the button on the left side of the header */
+
     background-color: #ff6f61; /* Soft coral color, same as Add Beverage button */
     color: white;
     padding: 12px 24px;
@@ -78,6 +82,7 @@ header {
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+
     left: 450px;
 
 }
