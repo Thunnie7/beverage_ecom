@@ -67,7 +67,11 @@ header {
 
     position: absolute;
     top: 20px;
+
     left: 1200px; /* Positions the button on the left side of the header */
+
+    left: 1300px; /* Positions the button on the left side of the header */
+
     background-color: #ff6f61; /* Soft coral color, same as Add Beverage button */
     color: white;
     padding: 12px 24px;
@@ -180,7 +184,29 @@ header {
     background-color: #0056b3;
 }
 
+
+.update-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Change label text color to white and increase font size */
+.form-group label {
+    color: #fff;
+    font-size: 2rem; /* Adjust the size as needed */
+}
+
+
 /* Back Button */
+
 .back-btn {
     position: absolute;
     top: 20px;

@@ -25,6 +25,7 @@
         <script src="./js/update_beverage.js"></script>
         <script src="./js/search_beverage.js"></script>
 
+
         <script>
             function viewBeverage() {
                 const request = new XMLHttpRequest();
@@ -71,7 +72,6 @@
             }
 
             function gotoUpdate(beverageData) {
-                
                 sessionStorage.setItem(
                     "selectedBeverage",
                     JSON.stringify(beverageData)
