@@ -3,21 +3,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (selectedBeverage) {
         editBeverage(selectedBeverage);
     } else {
-        alert("No beverage selected");
-
-        document.getElementById("editMessage").textContent = "No beverage selected!";
-
-        document.getElementById("editMessage").textContent =
-            "No beverage selected!";
-
-        document.getElementById("editMessage").className = "text-danger";
+        showMessage("No beverage selected!", "text-danger");
     }
 });
 
+function showMessage(message, className) {
+    const messageElement = document.getElementById("editMessage");
+    messageElement.textContent = message;
+    messageElement.className = className;
+}
 
-
-//name shouldnt be empty and less than 200 words
-
+// Name validation
 const nameInput = document.getElementById("editName");
 nameInput.addEventListener("input", function () {
     const nameError = document.getElementById("nameError");
@@ -31,15 +27,13 @@ nameInput.addEventListener("input", function () {
     }
 });
 
-
-// Image should be a valid URL and not empty
+// Image URL validation
 const imageInput = document.getElementById("editImage");
 imageInput.addEventListener("input", function () {
     const imageError = document.getElementById("imageError");
     const imagePreview = document.getElementById("imagePreview");
-    imageInput.value = imageInput.value.trim();
 
-    if (imageInput.value === "") {
+    if (imageInput.value.trim() === "") {
         imageError.textContent = "Please select an image";
         imagePreview.style.display = "none";
         return;
@@ -57,69 +51,49 @@ imageInput.addEventListener("input", function () {
     };
 
     img.onerror = function () {
-        imageError.textContent = "Image URL is not valid. Please select another URL!";
+        imageError.textContent =
+            "Image URL is not valid. Please select another URL!";
         imageInput.value = "";
         imagePreview.style.display = "none";
     };
 });
 
-
-//price should be between 1 and 999999999.99
+// Price validation
 const priceInput = document.getElementById("editPrice");
 priceInput.addEventListener("input", function () {
     const priceError = document.getElementById("priceError");
-    var min_price = 1;
-    var max_price = 999999999.99;
-    step = 0.1;
-    priceValue = parseFloat(priceInput.value);
+    const priceValue = parseFloat(priceInput.value);
 
-    if (isNaN(priceValue) || priceValue < min_price || priceValue > max_price) {
+    if (isNaN(priceValue) || priceValue < 1 || priceValue > 999999999.99) {
         priceError.textContent = "Price must be between 1 and 999999999.99";
-
-
         priceInput.value = "";
     } else {
         priceError.textContent = "";
     }
 });
 
-
-// Description should not be empty and less than 500 characters
-
-//description shouldnt be empty and less than 500 words
-
+// Description validation
 const descriptionInput = document.getElementById("editDescription");
 descriptionInput.addEventListener("input", function () {
     const descriptionError = document.getElementById("descriptionError");
     if (descriptionInput.value.trim() === "") {
         descriptionError.textContent = "Description is required";
     } else if (descriptionInput.value.length > 500) {
-
-        descriptionError.textContent = "Description should be 500 characters max";
-
         descriptionError.textContent =
             "Description should be 500 characters max";
-
         descriptionInput.value = descriptionInput.value.slice(0, 500);
     } else {
         descriptionError.textContent = "";
     }
 });
 
-
-// Rating Validation Script
+// Rating validation
 const ratingInput = document.getElementById("editRating");
 ratingInput.addEventListener("input", function () {
     const ratingError = document.getElementById("ratingError");
-    const minRating = 1;
-    const maxRating = 5;
     const ratingValue = parseFloat(ratingInput.value);
 
-    if (
-        isNaN(ratingValue) ||
-        ratingValue < minRating ||
-        ratingValue > maxRating
-    ) {
+    if (isNaN(ratingValue) || ratingValue < 1 || ratingValue > 5) {
         ratingError.textContent = "Rating must be between 1 and 5";
         ratingInput.value = "";
     } else {
@@ -127,31 +101,20 @@ ratingInput.addEventListener("input", function () {
     }
 });
 
-
-// Quantity should be between 1 and 1000
-
-//quantity should be between 1 to 1000
-
+// Quantity validation
 const quantityInput = document.getElementById("editQuantity");
 quantityInput.addEventListener("input", function () {
     const quantityError = document.getElementById("quantityError");
-    const minQuantity = 1;
-    const maxQuantity = 1000;
     const quantityValue = parseInt(quantityInput.value, 10);
 
-    if (
-        isNaN(quantityValue) ||
-        quantityValue < minQuantity ||
-        quantityValue > maxQuantity ||
-        quantityValue !== Math.floor(quantityValue)
-    ) {
-        quantityError.textContent = "Quantity must be an integer between 1 and 1000";
+    if (isNaN(quantityValue) || quantityValue < 1 || quantityValue > 1000) {
+        quantityError.textContent =
+            "Quantity must be an integer between 1 and 1000";
         quantityInput.value = "";
     } else {
         quantityError.textContent = "";
     }
 });
-
 
 function editBeverage(data) {
     const selectedBeverage = JSON.parse(data);
@@ -159,12 +122,8 @@ function editBeverage(data) {
     document.getElementById("editImage").value = selectedBeverage.image;
     document.getElementById("editPrice").value = selectedBeverage.price;
     document.getElementById("editCategory").value = selectedBeverage.category;
-
-    document.getElementById("editDescription").value = selectedBeverage.description;
-
     document.getElementById("editDescription").value =
         selectedBeverage.description;
-
     document.getElementById("editRating").value = selectedBeverage.rating;
     document.getElementById("editQuantity").value = selectedBeverage.quantity;
 
@@ -175,77 +134,42 @@ function editBeverage(data) {
 
 function updateBeverage(id) {
     const jsonData = {
-        name: document.getElementById("editName").value,
-        image: document.getElementById("editImage").value,
+        name: document.getElementById("editName").value.trim(),
+        image: document.getElementById("editImage").value.trim(),
         price: document.getElementById("editPrice").value,
         category: document.getElementById("editCategory").value,
-        description: document.getElementById("editDescription").value,
+        description: document.getElementById("editDescription").value.trim(),
         rating: document.getElementById("editRating").value,
         quantity: document.getElementById("editQuantity").value,
     };
 
-    // Check for any empty fields
-
-    const allFieldsFilled = Object.values(jsonData).every(value => value.trim() !== "");
-
-    if (!allFieldsFilled) {
-        document.getElementById("editMessage").textContent = "All fields are required!";
-
-    const allFieldsFilled = Object.values(jsonData).every(
-        (value) => value.trim() !== ""
-    );
-
-    if (!allFieldsFilled) {
-        document.getElementById("editMessage").textContent =
-            "All fields are required!";
-
-        document.getElementById("editMessage").className = "text-danger";
+    if (Object.values(jsonData).some((value) => value === "")) {
+        showMessage("All fields are required!", "text-danger");
         return;
-    } else {
-        document.getElementById("editMessage").textContent = "";
-        document.getElementById("editMessage").classList.remove("text-danger");
     }
 
     const request = new XMLHttpRequest();
     request.open("PUT", `/edit-beverage/${id}`, true);
     request.setRequestHeader("Content-Type", "application/json");
     request.onload = function () {
-
-        // Log the entire response for debugging
-
-        console.log("Response:", request.responseText);
-
         try {
             const response = JSON.parse(request.responseText);
-            const messageElement = document.getElementById("editMessage");
             if (response.message === "Beverage updated successfully") {
-
-                sessionStorage.setItem("successMessage", `Edited beverage: ${jsonData.name} successfully!`);
-
                 sessionStorage.setItem(
                     "successMessage",
                     `Edited beverage: ${jsonData.name} successfully!`
                 );
-
-                window.location.href = "index.html"; // Redirect to index.html
+                window.location.href = "index.html";
             } else {
-                messageElement.textContent = "Unable to edit beverage!";
-                messageElement.className = "text-danger";
+                showMessage("Unable to edit beverage!", "text-danger");
             }
         } catch (error) {
             console.error("Error parsing response:", error);
-
-            document.getElementById("editMessage").textContent = "An error occurred!";
-
-            document.getElementById("editMessage").textContent =
-                "An error occurred!";
-
-            document.getElementById("editMessage").className = "text-danger";
+            showMessage("An error occurred!", "text-danger");
         }
     };
     request.onerror = function () {
-        document.getElementById("editMessage").textContent = "Network error!";
-        document.getElementById("editMessage").className = "text-danger";
+        showMessage("Network error!", "text-danger");
     };
     request.send(JSON.stringify(jsonData));
-}}
+}
