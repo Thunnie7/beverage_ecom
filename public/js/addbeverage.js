@@ -7,7 +7,7 @@ function addbeverage() {
     jsonData.category = document.getElementById("category").value;
     jsonData.description = document.getElementById("description").value;
     jsonData.rating = document.getElementById("rating").value;
-    jsonData.quantity = document.getElementById("quantity").value;  // Corrected typo from quatity to quantity
+    jsonData.quantity = document.getElementById("quantity").value;  
 
     if (jsonData.name == "" || jsonData.image == "" || jsonData.price == "" || jsonData.category == "" || jsonData.description == "" || jsonData.rating == "" || jsonData.quantity == "") {
         document.getElementById("message").innerHTML = 'All fields are required!';
@@ -25,7 +25,7 @@ function addbeverage() {
         if (response.message == undefined) {
             document.getElementById("message").innerHTML = 'Added Beverage: ' + jsonData.name + '!';
             document.getElementById("message").setAttribute("class", "text-success");
-            alert('Beverage successfully added: ' + jsonData.name);  // Success alert
+            alert('Beverage successfully added: ' + jsonData.name);  
 
             // Clear the input fields after successful submission
             document.getElementById("name").value = "";
@@ -34,14 +34,14 @@ function addbeverage() {
             document.getElementById("category").value = "";
             document.getElementById("description").value = "";
             document.getElementById("rating").value = "";
-            document.getElementById("quantity").value = "";  // Reset quantity field
+            document.getElementById("quantity").value = "";     
 
-            // Redirect to index.html or update the page dynamically
-            window.location.href = 'index.html';  // You may want to use dynamic update if preferred
+            
+            window.location.href = 'index.html';  
         } else {
             document.getElementById("message").innerHTML = 'Unable to add beverage!';
             document.getElementById("message").setAttribute("class", "text-danger");
-            alert('Failed to add beverage!');  // Failure alert
+            alert('Failed to add beverage!');  
         }
     };
 
