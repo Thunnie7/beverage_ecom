@@ -98,39 +98,6 @@ body {
     border: 2px solid #ff6f61;
 }
 
-/* Search Button */
-.search-btn {
-    position: absolute;
-    top: 20px;
-    left: 450px; /* Positions the button on the left side of the header */
-    background-color: #ff6f61; /* Soft coral color, same as Add Beverage button */
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.search-btn:hover {
-    background-color: #ff4a3b;
-    transform: scale(1.1);
-}
-
-.search-btn:active {
-    background-color: #e13d2f;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transform: scale(1);
-}
-
-.search-btn:focus {
-    outline: none;
-    border: 2px solid #ff6f61;
-}
-
 /* Additional styling for layout */
 header {
     display: flex;
