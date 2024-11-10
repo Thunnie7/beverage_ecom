@@ -15,6 +15,9 @@ header {
 
 .logo {
     cursor: pointer;
+    color: #000;
+    font-size: 2rem;
+    margin-right: 20px;
 }
 
 #add_button {
@@ -32,45 +35,12 @@ body {
     color: #fff;
 }
 
-/* Logo */
-.logo {
-    color: #000;
-    font-size: 2rem;
-    display: inline-block;
-    margin-right: 20px;
-}
-
-/* horizontal category styling */
-.category-menu {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.category-menu ul {
-    display: flex; /* Aligns in a row */
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.category-menu li {
-    margin: 0 15px; /* Spacing */
-    font-weight: bold;
-    color: #000; /*color for text */
-    font-size: 1rem;
-    cursor: pointer;
-    text-transform: uppercase;
-}
-
-.category-menu li:hover {
-    color: #007bff;
-}
-
+/* Button for opening modal */
 .open-modal-btn {
-    position: absolute; /* Absolute positioning to move the button freely */
-    top: 20px; /* Adjust the distance from the top of the container */
-    right: 20px; /* Adjust the distance from the right side of the container */
-    background-color: #ff6f61; /* Soft coral color */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ff6f61;
     color: white;
     padding: 12px 24px;
     border: none;
@@ -98,30 +68,20 @@ body {
     border: 2px solid #ff6f61;
 }
 
-/* Additional styling for layout */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 20px;
-    background-color: #e0f7fa; /* Light blue background */
-}
-
-/* Modal Background */
+/* Modal styling */
 .modal {
-    display: none; /* Hidden by default, shown with JavaScript */
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
 }
 
-/* Modal Content Box */
 .modal-content {
     background-color: #fff;
     padding: 20px;
@@ -131,14 +91,13 @@ header {
     text-align: left;
 }
 
-/* Modal Header */
 .modal-content h2 {
     margin-bottom: 20px;
     font-size: 1.5rem;
     color: #333;
 }
 
-/* Form Group Styling */
+/* Form group styling in modal */
 .form-group {
     margin-bottom: 15px;
 }
@@ -147,7 +106,8 @@ header {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-    color: #333;
+    color: #fff;
+    font-size: 2rem;
 }
 
 .form-group input[type="text"] {
@@ -158,14 +118,13 @@ header {
     box-sizing: border-box;
 }
 
-/* Button Container */
+/* Button container in modal */
 .button-container {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
 }
 
-/* Close Button */
 .close-btn {
     background-color: #ccc;
     color: #333;
@@ -179,7 +138,6 @@ header {
     background-color: #bbb;
 }
 
-/* Add Button */
 .add-btn {
     background-color: #007bff;
     color: white;
@@ -193,17 +151,11 @@ header {
     background-color: #0056b3;
 }
 
-/* Change label text color to white and increase font size */
-.form-group label {
-    color: #fff;
-    font-size: 2rem; /* Adjust the size as needed */
-}
-
 .back-btn {
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: #007bff; /* Blue color */
+    background-color: #007bff;
     color: #fff;
     padding: 8px 16px;
     border: none;
@@ -215,5 +167,81 @@ header {
 }
 
 .back-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Container for the beverage cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Beverage card styling */
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Card title styling */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding: 15px;
+    background-color: #bde0fe;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Description and details styling */
+.card-description {
+    font-size: 1rem;
+    padding: 15px;
+    color: #555;
+    text-align: center;
+}
+
+.card-price,
+.card-category,
+.card-quantity,
+.card-rating {
+    font-size: 1rem;
+    color: #333;
+    margin: 10px;
+    text-align: center;
+}
+
+/* Update button styling */
+.edit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px auto;
+    display: block;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
     background-color: #0056b3;
 }
